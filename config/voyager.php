@@ -121,7 +121,7 @@ return [
         /*
          * Set whether or not the multilingual is supported by the BREAD input.
          */
-        'enabled' => false,
+        'enabled' => true,
 
         /*
          * Select default language
@@ -133,7 +133,7 @@ return [
          */
         'locales' => [
             'en',
-            //'pt',
+            'ru',
         ],
     ],
 
@@ -166,7 +166,7 @@ return [
         ],
 
         'widgets' => [
-            'TCG\\Voyager\\Widgets\\UserDimmer',
+            //'TCG\\Voyager\\Widgets\\UserDimmer',
             'TCG\\Voyager\\Widgets\\PostDimmer',
             'TCG\\Voyager\\Widgets\\PageDimmer',
         ],

@@ -168,8 +168,14 @@
   		  	</div>
   		  </div>
   		  <div class="col-md-6 col-sm-6 col-xs-6 contact-block">
-  		    <h3>Say something</h3>
-  		    <form method="POST" name="myForm">
+  		    <h3 style="{{ Session::has('success') ? "margin-bottom: 5px; padding-bottom: 2px" : "" }}">Say something</h3>
+          @if(Session::has('success'))
+            <div class = "alert alert-success" style="margin-bottom: 2px">
+              {{ Session::get('success') }}
+            </div>
+          @endif
+  		    <form method="POST" name="myForm" action = "{{ route('contact') }}">
+            {{ csrf_field() }}
   		      <input type="text" name="name" class="form-control contact-form" placeholder="Name" required />
   		      <input type="number" name="phone" class="form-control contact-form" placeholder="Phone" required="Please input" />
   		      <input type="email" name="email" class="form-control contact-form" placeholder="Email" required />

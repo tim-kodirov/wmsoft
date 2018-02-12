@@ -12,7 +12,7 @@
 */
 
 Route::get('/', 'IndexController@index');
-
+Route::post('/contact', 'ContactController@store')->name('contact');
 
 Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();

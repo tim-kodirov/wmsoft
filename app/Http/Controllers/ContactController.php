@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Contact;
-
+use Session;
 
 class ContactController extends Controller
 {
@@ -25,7 +25,7 @@ class ContactController extends Controller
      */
     public function create()
     {
-        //
+        
     }
 
     /**
@@ -36,7 +36,23 @@ class ContactController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request, [
+                'name'      => 'required',
+                'phone'     => 'required',
+                'email'     => 'required|email',
+                'message'   => 'required'
+            ]);
+
+        $contact = new Contact;
+        $contact->name = $request->name;
+        $contact->phone = $request->phone;
+        $contact->email = $request->email;
+        $contact->message = $request->message;
+        $contact->save();
+
+        Session::flash('success', 'Your message has successfully been sent!');
+
+        return redirect(url('/#lastPage'));
     }
 
     /**
